@@ -1,61 +1,51 @@
-# book_rewards_calculator.py
-import tkinter as tk
+Book Rewards Calculator (Python & Tkinter)
 
-#window setup
-root = tk.Tk()
-root.title("Serendipity Points Calculator")
-root.geometry("400x300")
-root.resizable(0, 0)
-root.configure(bg="light grey")
+This project is a desktop-based rewards points calculator built using Python’s tkinter library. The application allows users to enter the number of books purchased in a month and calculates the corresponding reward points through an interactive GUI.
 
-#functions
-def calculate_points():
-    user_input = entry_books.get().strip()
+Overview:
+The application demonstrates how to create a simple GUI, handle user input, and implement conditional logic in Python. When launched, the interface displays an instruction label, an input field for the number of books, buttons to compute points or clear results, and an area where the points earned are displayed.
 
-    if user_input.isdigit():
-        books = int(user_input)
+Features:
 
-        if books == 0:
-            result_label.config(text="You earned 0 points this month!")
+Graphical interface built with tkinter
 
-        elif books == 1:
-            result_label.config(text="You earned 0 points this month!")
+Calculates reward points based on monthly book purchases
 
-        elif 2 <= books <= 3:
-            result_label.config(text="You earned 5 points this month!")
+Input validation for non-numeric entries
 
-        elif 4 <= books <= 5:
-            result_label.config(text="You earned 15 points this month!")
+Clear button to reset input and output fields
 
-        elif 6 <= books <= 7:
-            result_label.config(text="You earned 30 points this month!")
+How the Program Works:
 
-        elif books >= 8:
-            result_label.config(text="You earned 60 points this month!")
+Input Handling:
+The user enters the number of books purchased in a text field. The program checks whether the input is numeric. If the input is invalid, an error message is displayed.
 
-    else:
-        result_label.config(text="Invalid input, please try again.")
+Points Calculation:
 
-#clear button
-def clear_result():
-    entry_books.delete(0, tk.END)
-    result_label.config(text="")
+0 or 1 books: 0 points
 
+2 to 3 books: 5 points
 
-#widgets
-instruction_label = tk.Label(root, text="Enter the number of books purchased this month:", bg="light grey", fg="black", font=("Arial", 11))
-instruction_label.pack(side=tk.TOP)
+4 to 5 books: 15 points
 
-entry_books = tk.Entry(root, width=10, font=("Arial", 12), justify="center", bg="white", fg="black", relief="flat", bd=1)
-entry_books.pack(side=tk.TOP)
+6 to 7 books: 30 points
 
-compute_button = tk.Button(root, text="Compute Points", command=calculate_points, font=("Arial", 10, "bold"), bg="light grey", fg="black", relief="flat", bd=0, highlightthickness=0, activebackground="light grey")
-compute_button.pack(side=tk.TOP)
+8 or more books: 60 points
 
-clear_button = tk.Button(root, text="Clear Result", command=clear_result, font=("Arial", 10, "bold"), bg="light grey", fg="black", relief="flat", bd=0, highlightthickness=0, activebackground="light grey")
-clear_button.pack(side=tk.TOP)
+Button Functions:
 
-result_label = tk.Label(root, text="", bg="light grey", fg="black", font=("Arial", 12, "bold"))
-result_label.pack(side=tk.TOP)
+Compute Points: Calculates and displays points based on the number of books entered
 
-root.mainloop()
+Clear Result: Clears the input field and resets the displayed result
+
+Each function updates the result label immediately based on the user’s input and provides feedback if the input is invalid.
+
+Requirements:
+
+Python 3.x
+
+tkinter (included with standard Python installations)
+
+How to Run:
+Run the program from a terminal or command prompt using:
+python book_rewards_calculator.py
